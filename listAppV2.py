@@ -36,6 +36,9 @@ def mainProgram():
                 randomSearch()
             elif choice == "6":
                 linearSearch()
+           # elif choice == "7":
+
+           # elif choice == "8":
             else:
                 break
         except:
@@ -49,7 +52,7 @@ def addToList():
 def addABunch():
     print("We're gonna add a bunch of numbers.")
     numToAdd = input("How many integers do you want to add?   ")#numbers
-    numRange = input("And how high would you like these numbers to go?  ")#range
+    numRange = input("And how high would you like these numbers to go?  ")#range the things that we need
     for x in range (0, int(numToAdd)):
         myList.append(random.randint(0, int(numRange)))
     print("Your list is now complete!")
@@ -66,9 +69,13 @@ def randomSearch():
 def linearSearch():
     print("we're going to search through the list IN THE WORST WAY POSSIBLE!")
     searchItem = input("What are you looking for? Number-wise. ")
+    indexCount = 0
     for x in range (len(myList)):
         if myList[x] == int(searchItem):
+            indexCOunt = indexCount + 1
             print("Your item is at index {}" .format(x))
+    print("You're number appreadred {} times in the list ". format(indexCount))
+            
 
 
 
