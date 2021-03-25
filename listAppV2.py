@@ -9,6 +9,7 @@ Program goals:
 #create functions that will perform those actions above
 import random
 myList = []
+unique_list = []
 
 
     
@@ -20,10 +21,11 @@ def mainProgram():
             choice = input("""1. Add to list,
 2. Add a bunch of numbers
 3. Return the value at an index position
-4. Print Contents of list
+4. Sort list
 5. Random choice
 6. Linear Search
-7. End Program """)
+7. Print Lists
+8. End Program """)
             if choice == "1":
                 addToList()
             elif choice == "2":
@@ -31,11 +33,13 @@ def mainProgram():
             elif choice== "3":
                 indexValues()
             elif choice ==  "4": 
-                print(myList)
+                sortList(myList)
             elif choice == "5":
                 randomSearch()
             elif choice == "6":
                 linearSearch()
+            elif choice == "7":
+                printLists()
            # elif choice == "7":
 
            # elif choice == "8":
@@ -56,7 +60,27 @@ def addABunch():
     for x in range (0, int(numToAdd)):
         myList.append(random.randint(0, int(numRange)))
     print("Your list is now complete!")
-    
+
+
+def sortList (myList):
+    for x in myList:
+        if x not in unique_list:
+            unique_list.append(x)
+    unique_list.sort()
+    showMe = input("Wanna see your new list? Y/N   ")
+    if showMe.lower() == "y":
+        print(unique_list)
+
+def printLists():
+    if len(unique_list) == 0:
+        print(myList)
+    else:
+        whichOne = input("Which list? Sorted or un-sorted?  ")
+        if whichOne.lower() == "sorted":
+            print(unique_list)
+        else:
+            print(myList)
+
         
 def indexValues():
     indexPos = input("At what index position would you like to see? ")
@@ -72,7 +96,7 @@ def linearSearch():
     indexCount = 0
     for x in range (len(myList)):
         if myList[x] == int(searchItem):
-            indexCOunt = indexCount + 1
+            indexCount = indexCount + 1
             print("Your item is at index {}" .format(x))
     print("You're number appreadred {} times in the list ". format(indexCount))
             
