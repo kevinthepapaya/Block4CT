@@ -79,7 +79,7 @@ def printLists():
         if whichOne.lower() == "sorted":
             print(unique_list)
         else:
-            print(myList)
+            print(myList) 
 
         
 def indexValues():
@@ -99,6 +99,21 @@ def linearSearch():
             indexCount = indexCount + 1
             print("Your item is at index {}" .format(x))
     print("You're number appreadred {} times in the list ". format(indexCount))
+
+def recursiveBinarySearch (unique_list, low, high, x):
+    if high >= low:
+        mid = (high + low) //2
+
+        if unique_list[mid] == x:
+            print("Oh, what luck. Your number is at postion {}".format(mid))
+        elif unique_list[mid] > x:
+            return recursiveBinarySearch(unique_list, low, mid -1, x)
+        else:
+            return recursiveBinarySearch(unique_list, mid + 1, high, x)
+        
+
+    else:
+        print("Your number isn't here!")
             
 
 
