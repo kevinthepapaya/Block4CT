@@ -24,8 +24,10 @@ def mainProgram():
 4. Sort list
 5. Random choice
 6. Linear Search
-7. Print Lists
-8. End Program """)
+7. Recursive Binary Search
+8. Iterative Binary Search
+9. Print Lists
+10. End Program """)
             if choice == "1":
                 addToList()
             elif choice == "2":
@@ -39,10 +41,19 @@ def mainProgram():
             elif choice == "6":
                 linearSearch()
             elif choice == "7":
+                binSearch = input("What number are you looking for?  ")
+                recursiveBinarySearch(unique_list, 0, len(unique_list)-1, int(binSearch))
+            elif choice == "8":
+                  binSearch = input("What number are you looking for?  ")
+                  result = iterativeBinarySearch(unique_list, int(binSearch))
+                  if result != -1:
+                      print("Your number is at index position {}".format(result))
+                  else:
+                      print("Your number was not found in that list, buddy!")
+                
+            elif choice == "9":
                 printLists()
-           # elif choice == "7":
 
-           # elif choice == "8":
             else:
                 break
         except:
@@ -89,6 +100,8 @@ def indexValues():
 def randomSearch():
     print("Here's a random value from your list")
     print(myList[random.ranint(0,len(myList)-1)])
+    if len(unique_list) > 0:
+        print(unique_list[random.randint(0,len(unique_list)-1)])
 
 def linearSearch():
     print("we're going to search through the list IN THE WORST WAY POSSIBLE!")
@@ -114,6 +127,24 @@ def recursiveBinarySearch (unique_list, low, high, x):
 
     else:
         print("Your number isn't here!")
+
+def interativeBinarySearch(unique_list, x):
+    low = 0
+    high = len(unique_list)-1
+    mid = 0
+
+    while low <= high:
+        mid = (high + low) //2
+
+        if unique_list[mid] < x:
+            low = mid + 1
+
+        elif unique_list[mid] > x:
+            high = mid - 1
+        else:
+            return mid
+    return -1
+                
             
 
 
