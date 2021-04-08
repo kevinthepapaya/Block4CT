@@ -43,10 +43,11 @@ def mainProgram():
             elif choice == "7":
                 binSearch = input("What number are you looking for?  ")
                 recursiveBinarySearch(unique_list, 0, len(unique_list)-1, int(binSearch))
+
             elif choice == "8":
                   binSearch = input("What number are you looking for?  ")
-                  result = iterativeBinarySearch(unique_list, int(binSearch))
-                  if result != -1:
+                  result = iterativeBinarySearch(unique_list, int(binSearch)) #output of the search is equal to the variable result.
+                  if result != -1: #if does not equal is the !
                       print("Your number is at index position {}".format(result))
                   else:
                       print("Your number was not found in that list, buddy!")
@@ -143,7 +144,7 @@ def interativeBinarySearch(unique_list, x):
             high = mid - 1
         else:
             return mid
-    return -1
+    return -1   #return makes something available to the user. almost like an output that the computer uses again. Used recursively. Truthy and falsey statements.
                 
             
 
